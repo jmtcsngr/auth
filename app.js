@@ -5,19 +5,32 @@
 
 'use strict';
 
+const fs = require('fs');
+const https = require('https');
 const path = require('path');
 
 const bodyParser = require('body-parser');
 const express = require('express');
+const helmet = require('helmet');
 
 const model = require('./lib/model');
 
 const PORT = process.argv[2] || 8000;
-
-const app = express();
+const httpsopts = {
+  key: fs.readFileSync('./certs/priv.key'),
+  cert: fs.readFileSync('./certs/cert.pem')
+};
 
 const creation_msg = 'Created by owner via web interface';
 const revocation_msg = 'Revoked by owner via web interface';
+
+
+const app = express();
+const serv = https.createServer(httpsopts, app);
+
+app.use(helmet({
+  hsts: false
+}));
 
 app.set('view engine', 'ejs');
 
@@ -102,6 +115,5 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.listen(PORT);
+serv.listen(PORT);
 console.error(`express started on port ${PORT}`);
-
