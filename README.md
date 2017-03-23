@@ -69,7 +69,7 @@ To disable https, run with the option --no-ssl.
 
 ```
 npm install -g grunt-cli
-cd auth
+cd npg_sentry
 ```
 
 Run linter:
