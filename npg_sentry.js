@@ -5,7 +5,6 @@
 /**
  * @module npg_sentry
  * @copyright 2017 Genome Research Ltd
- * @author Andrew Nowak
  */
 
 const config = require('./lib/config');
