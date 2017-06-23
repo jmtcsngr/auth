@@ -38,7 +38,11 @@
     "start": "./npg_sentry.js",
     "postinstall": "./node_modules/.bin/bower install"
   },
-  "author": "@aacn500",
+  "contributors": [
+    "Marina Gourtovaia <marina.gourtovaia@sanger.ac.uk>",
+    "Andrew Nowak <andrew.nowak@sanger.ac.uk>",
+    "Jaime Tovar <jaime-manuel.tovar-corona@sanger.ac.uk>"
+  ],
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "acl":         "0.4.10",
