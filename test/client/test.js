@@ -65,7 +65,7 @@ requirejs(['qunit', 'jquery', 'setup', 'sentrylib'], function(QUnit, $, setup, s
       ];
 
       $.get = function mockAjax(opts) {
-        assert.strictEqual(opts.url, window.location + 'listTokens',
+        assert.strictEqual(opts.url, './listTokens',
           'Makes request to /listTokens');
         opts.success(data, 'success');
 
@@ -178,7 +178,7 @@ requirejs(['qunit', 'jquery', 'setup', 'sentrylib'], function(QUnit, $, setup, s
         },
       ];
       $.get = function mockAjaxGet(opts) {
-        assert.strictEqual(opts.url, window.location + 'listTokens',
+        assert.strictEqual(opts.url, './listTokens',
           'Makes request to /listTokens');
         opts.success(data, 'success');
       };
@@ -186,7 +186,7 @@ requirejs(['qunit', 'jquery', 'setup', 'sentrylib'], function(QUnit, $, setup, s
 
       var oldAjaxPost = $.post;
       $.post = function mockAjaxPost(opts) {
-        assert.strictEqual(opts.url, window.location + 'revokeToken',
+        assert.strictEqual(opts.url, './revokeToken',
           'Makes POST request to /revokeToken');
         assert.strictEqual(opts.data, JSON.stringify({token: 'abc'}),
           'POST request data is JSON containing token to revoke');
@@ -219,7 +219,7 @@ requirejs(['qunit', 'jquery', 'setup', 'sentrylib'], function(QUnit, $, setup, s
         opts.success([], 'success');
       };
       $.post = function mockAjaxPost(opts) {
-        assert.strictEqual(opts.url, window.location + 'createToken',
+        assert.strictEqual(opts.url, './createToken',
           'Makes POST request to /createToken');
         assert.strictEqual(
           $('#token-table').children('tbody').children('tr').length, 1,
@@ -257,7 +257,7 @@ requirejs(['qunit', 'jquery', 'setup', 'sentrylib'], function(QUnit, $, setup, s
         opts.success([], 'success');
       };
       $.post = function mockAjaxPost(opts) {
-        assert.strictEqual(opts.url, window.location + 'createToken',
+        assert.strictEqual(opts.url, './createToken',
           'Makes POST request to /createToken');
         assert.strictEqual(opts.data, '{"reason":"test reason"}',
           'A reason is given');

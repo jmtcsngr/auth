@@ -19,7 +19,7 @@ define(['jquery', 'clipboard', 'sentrylib'], function($, Clipboard, sentrylib) {
 
     $('#create-token-button').on('click', function() {
       var postOpts = {
-        url: window.location + 'createToken',
+        url: './createToken',
         success: function(data) {
           var $th = $('#table-headers');
           var $row = sentrylib.generateTokenRow($('<tr></tr>'), data);
@@ -40,7 +40,7 @@ define(['jquery', 'clipboard', 'sentrylib'], function($, Clipboard, sentrylib) {
     });
 
     $.get({
-      url: window.location + 'listTokens',
+      url: './listTokens',
       success: function(data) {
         var $table = $('#token-table');
         data.forEach(function(doc) {
