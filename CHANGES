@@ -1,5 +1,6 @@
 CHANGES
 
+release 0.6.1
   - discontinue use of window.location to build relative urls
 
 release 0.6.0
